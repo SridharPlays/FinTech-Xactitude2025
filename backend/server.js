@@ -25,7 +25,29 @@ const transactionSchema = new mongoose.Schema({
     category: { type: String, required: true }
 });
 
+//user schema
+const userSchema = new mongoose.Schema(
+    {
+      email: {
+        type: String,
+        required: true,
+        unique: true,
+      },
+      fullName: {
+        type: String,
+        required: true,
+      },
+      password: {
+        type: String,
+        required: true,
+        minlength: 6,
+      },
+    },
+    { timestamps: true }
+  );
+
 const Transaction = mongoose.model('Transaction', transactionSchema);
+const User = mongoose.model('User', userSchema);
 
 app.post("/addtransaction", async (req, res) => {
     try {
@@ -121,6 +143,50 @@ app.post("/parse-sms", async (req, res) => {
         }
     } catch (error) {
         res.status(500).json({error: "Error processing SMS"});
+    }
+});
+
+//signup
+app.post("/signup", async (req, res) => {
+    const { fullName, email, password } = req.body;
+    try {
+        if (!fullName && !email && !password) {
+            return res.status(400).json({ message: "All Fields are Required!" });
+        }
+        if (password.length < 6) {
+            return res.status(400).json({ message: "Password Must Contain Atleast 6 Characters! " });
+        }
+        const user = await User.findOne({ email });
+        if (user) return res.status(400).json({ message: "User Already Exist" });
+        const newUser = new User({
+            fullName,
+            email,
+            password
+        });
+    } catch (error) {
+        console.log("Error in signup Controller", error.message);
+        res.status(500).json({ message: "Internal Server Error " });
+    }
+});
+
+app.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ message: "Invalid Credentials! " });
+        }
+
+        const isPasswordCorrect = await (password === user.password);
+        if (!isPasswordCorrect) {
+            return res.status(400).json({ message: "Invalid Credentials! " });
+        }
+
+        res.status(200).json({ _id: user._id, fullName: user.fullName, email: user.email, profilePic: user.profilePic });
+
+    } catch (error) {
+        console.log("Error in Login Controller", error.message);
+        res.status(500).json({ message: "Internal Server Error" });
     }
 });
 

@@ -56,3 +56,22 @@ export const parseSMS = async (sms) => {
     }
 }
 
+export const signup = async (user) => {
+    try {
+        const response = await axios.post(`${urlapi}/signup`, user);
+        return response.data;
+    } catch (error) {
+        return { error: "Error signing up" };
+    }
+}
+
+export const login = async (user) => {
+    try {
+        const response = await axios.post(`${urlapi}/login`, user);
+        return response.data;
+    } catch (error) {
+        return { error: "Error logging in" };
+    }
+}
+
+

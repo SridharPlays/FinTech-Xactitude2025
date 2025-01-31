@@ -12,7 +12,7 @@ const Dashboard = () => {
   const [totalExpenses, setTotalExpenses] = useState(0);
 
   // useEffect(() => {
-  //   axios.get('/get')
+  //   axios.get('/')
   //     .then(response => {
   //       setExpenses(response.data);
   //       calculateTotals(response.data);
@@ -102,7 +102,7 @@ const Dashboard = () => {
       </div>
 
       {/* Spending Analysis */}
-      <div className="charts">
+      {/* <div className="charts">
         <div className="chart-container">
           <h3>Expense Categories</h3>
           <canvas id="expenseChart" width="400" height="400"></canvas>
@@ -111,7 +111,7 @@ const Dashboard = () => {
           <h3>Monthly Spending Trends</h3>
           <canvas id="trendChart" width="400" height="400"></canvas>
         </div>
-      </div>
+      </div> */}
 
       {/* Recent Transactions */}
       <div className="recent-transactions">

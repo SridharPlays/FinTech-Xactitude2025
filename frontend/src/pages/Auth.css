@@ -1,11 +1,18 @@
+body {
+  background-color: #000;
+
+}
 .auth-container {
     max-width: 400px;
     margin: 50px auto;
-    padding: 20px;
+    padding: 30px;
     background: #000;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-bottom: 300px;
+    margin-top: 100px;
+    border: 2px solid grey;
   }
   
   .auth-container h2 {
@@ -58,4 +65,4 @@
   
   .auth-container a:hover {
     text-decoration: underline;
-  }
+  } 

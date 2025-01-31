@@ -17,9 +17,9 @@ const LoginPage = () => {
     }
 
     try {
-      const response = await axios.post('/api/auth/login', { email, password });
+      const response = await axios.post('/login', { email, password });
       localStorage.setItem('token', response.data.token);
-      navigate('/dashboard'); // Redirect to dashboard after login
+      navigate('/dashboard');
     } catch (err) {
       setError('Invalid email or password.');
     }

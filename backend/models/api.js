@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const urlapi = "http://localhost:5001";
+const urlapi = "https://gsus.onrender.com";
 
 export const addTransaction = async (transaction) => {
     try {

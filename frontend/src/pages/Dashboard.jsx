@@ -11,18 +11,18 @@ const Dashboard = () => {
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalExpenses, setTotalExpenses] = useState(0);
 
-  useEffect(() => {
-    axios.get('/api/expenses')
-      .then(response => {
-        setExpenses(response.data);
-        calculateTotals(response.data);
-      })
-      .catch(error => console.error('Error fetching expenses:', error));
+  // useEffect(() => {
+  //   axios.get('/get')
+  //     .then(response => {
+  //       setExpenses(response.data);
+  //       calculateTotals(response.data);
+  //     })
+  //     .catch(error => console.error('Error fetching expenses:', error));
 
-    axios.get('/api/goals')
-      .then(response => setGoals(response.data))
-      .catch(error => console.error('Error fetching goals:', error));
-  }, []);
+  //   axios.get('/api/goals')
+  //     .then(response => setGoals(response.data))
+  //     .catch(error => console.error('Error fetching goals:', error));
+  // }, []);
 
   // Calculate total income and expenses
   const calculateTotals = (expenses) => {

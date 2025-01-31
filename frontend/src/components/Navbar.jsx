@@ -8,15 +8,13 @@ const Navbar = () => {
         <header class="navigation">
 		<img class="logo" src={Logo} width="50px" />
 		<nav class="navigation-1">
-			<a href="">Home</a>
-			<a href="./dashboard.html">Dashboard</a>
-			<a href="">Expenses</a>
-			<a href="">Budgets</a>
-			<a href="">Reports</a>
+			<a href="./">Home</a>
+			<a href="./dashboard">Dashboard</a>
+			<a href="./reports">Reports</a>
 		</nav>
 		<nav class="navigation-2">
-			<a href="">Login</a>
-			<a href="">Sign Up</a>
+			<a href="./login">Login</a>
+			<a href="./signup">Sign Up</a>
 		</nav>
 	    </header>
     </div>

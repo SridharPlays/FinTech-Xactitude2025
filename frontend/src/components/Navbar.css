@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.body {
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+.navigation {
+    padding: 10px 30px;
+    background-color: rgb(0, 0, 0);
+    border-bottom: 1px solid white;
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation a {
+    color: rgb(161, 161, 161);
+    font-size: 14px;
+    margin-right: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navigation a:hover {
+    color: #fff;
+}
+
+.navigation-1 {
+    padding-left: 120px;
+}
+
+.navigation-2 a {
+    background-color: rgb(10, 10, 10);
+    color: rgb(161, 161, 161);
+    border-radius: 8px;
+    border: 1px solid rgb(161, 161, 161);
+    padding: 8px 18px;
+    margin-right: 4px;
+}
+
+.navigation-2 a:last-child {
+    background-color: white;
+    color: black;
+}
+
+.navigation-2 a:hover {
+    opacity: 0.8;
+    background-color: rgb(10, 10, 10, 0.5);
+    text-decoration: none;
+}
+
+.navigation-2 a:last-child:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+}
+
+.navigation .logo {
+    transition: all 0.3s;
+}
+.navigation .logo:hover {
+    transform: translate(-1px, -1px);
+}

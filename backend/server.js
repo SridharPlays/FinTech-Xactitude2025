@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const app = express();
 const port = 5001;
@@ -189,6 +190,14 @@ app.post("/login", async (req, res) => {
         res.status(500).json({ message: "Internal Server Error" });
     }
 });
+
+
+
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+app.get("*", (req,res) => {
+        res.sendFile(path.join(__dirname, "../frontend","dist","index.html"))
+    })
 
 app.listen(port, () => {
     console.log(`Server is running on port ${5000}`);

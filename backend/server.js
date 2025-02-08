@@ -10,7 +10,7 @@ const port = 5001;
 app.use(bodyParser.json());
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://sanjaynarasimman340:Sridhar%402006@cluster0.loeel.mongodb.net/expense?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect('<link>', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
